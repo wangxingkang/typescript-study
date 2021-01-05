@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "rootDir": "src/sub",
+    "outDir": "dist"
+  },
+  "exclude": [
+    "src/a.ts"
+  ]
+}
