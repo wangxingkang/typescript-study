@@ -1,1 +1,4 @@
-# typescript-study
+<h1 align="center">
+  typescript-study
+</h1>
+
