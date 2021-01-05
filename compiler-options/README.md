@@ -2,10 +2,23 @@
   typescript-study
 </h1>
 
+## 目录
+
+### File Inclusion
+
 |选项|类型|默认|描述|
 |---|----|---|---|
 |allowJs|`boolean`|`false`|允许编译JS文件|
 |checkJs|`boolean`|`false`|	在 .js文件中报告错误。|
+
+### Project Options
+
+|选项|类型|默认|描述|
+|---|----|---|---|
+|allowJs|`boolean`|`false`|允许编译JS文件|
+|checkJs|`boolean`|`false`|	在 .js文件中报告错误。|
+
+### Strict Checks
 
 ## 编译选项
 
