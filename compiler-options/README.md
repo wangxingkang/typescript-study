@@ -8,8 +8,7 @@
 
 |选项|类型|默认|描述|
 |---|----|---|---|
-|allowJs|`boolean`|`false`|允许编译JS文件|
-|checkJs|`boolean`|`false`|	在 .js文件中报告错误。|
+|exclude|`string[]`|`['node_modules', 'bower_components', 'jspm_packages']`|需要排除的文件|
 
 ### Project Options
 
