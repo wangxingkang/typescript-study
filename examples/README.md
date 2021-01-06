@@ -17,7 +17,7 @@
 |选项|类型|默认|描述|
 |---|----|---|---|
 |[`allowJs`](#allowJs)|`boolean`|`false`|允许编译JS文件|
-|[`checkJs`](#checkJs)|`boolean`|`false`|	在 .js文件中报告错误。|
+|[`checkJs`](#checkJs)|`boolean`|`false`|	报告JS文件中的错误。|
 
 ### Strict Checks
 
@@ -38,7 +38,7 @@
 
 ```
 # 设置为 true 时，编译后的文件包含 foo.js
-├── lib
+├── dist
 │   ├── foo.js
 │   └── index.js
 ├── src
@@ -50,7 +50,7 @@
 
 ```
 # 设置为 false 时，编译后的文件不包含 foo.js
-├── lib
+├── dist
 │   └── index.js
 ├── src
 │   ├── foo.js
@@ -62,6 +62,23 @@
 [⇧ 回到目录](#目录)
 
 ### checkJs
+
+和`allowJs`配合使用，设置为`true`时，则会报告JS文件中的错误
+
+**使用场景**
+
+- 项目中使用`TS`、`JS`进行混合开发
+
+**查看示例**
+
+- [allowJs-true](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/checkJs-true)
+- [allowJs-false](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/checkJs-false)
+
+```js
+// constants.js
+// parseFloat(3.124); 参数只能为字符串，编译报错
+module.exports.pi = parseFloat(3.124);
+```
 
 ### allowSyntheticDefaultImports
 
