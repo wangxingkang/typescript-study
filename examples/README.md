@@ -71,14 +71,16 @@
 
 **查看示例**
 
-- [allowJs-true](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/checkJs-true)
-- [allowJs-false](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/checkJs-false)
+- [checkJs-true](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/checkJs-true)
+- [checkJs-false](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/checkJs-false)
 
 ```js
 // constants.js
 // parseFloat(3.124); 参数只能为字符串，编译报错
 module.exports.pi = parseFloat(3.124);
 ```
+
+[⇧ 回到目录](#目录)
 
 ### allowSyntheticDefaultImports
 
