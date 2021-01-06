@@ -9,11 +9,16 @@
   "scripts": {
     "build": "lerna run build --stream"
   },
+  "dependencies": {
+    "rimraf": "^3.0.2"
+  },
   "devDependencies": {
+    "@types/rimraf": "^3.0.0",
     "lerna": "^3.22.1",
     "typescript": "^4.1.3"
   },
   "workspaces": [
-    "compiler-options/*"
+    "examples/file-inclusion/*",
+    "examples/project-options/*"
   ]
 }
