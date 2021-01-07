@@ -20,6 +20,7 @@
 |[`checkJs`](#checkJs)|`boolean`|`false`|	报告JS文件中的错误。|
 |[`declaration`](#declaration)|`boolean`|`false`|生成类型定义文件|
 |[`declarationDir`](#declarationDir)|`string`|`n/a`|指定类型定义文件目录|
+|[`declarationMap`](#declarationMap)|`boolean`|`false`|生成类型定义的source map|
 
 ### Strict Checks
 
@@ -27,7 +28,7 @@
 
 ### allowJs
 
-设置为`true`时，将允许导入JS文件到你的项目，否则不会。
+设置为`true`时，js文件将被 tsc 编译，否则不会。
 
 使用场景：
 
@@ -137,6 +138,44 @@ module.exports.pi = parseFloat(3.124);
 ├── dist
 │   ├── types
 │   │   └── index.d.ts
+│   └── index.js
+├── src
+│   └── index.ts
+├── package.json
+└── tsconfig.json
+```
+
+[⇧ 回到目录](#目录)
+
+### declarationMap
+
+生成类型定义的source map
+
+使用场景：
+
+- 开发组件库、工具库需要生成类型定义文件时使用
+
+查看示例：
+
+- [declarationMap-false](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/declarationMap-false)
+- [declarationMap-true](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/declarationMap-true)
+
+```
+# 设置为 true 时，编译后的文件包含 *.d.ts.map
+├── dist
+│   ├── index.d.ts
+│   ├── index.d.ts.map
+│   └── index.js
+├── src
+│   └── index.ts
+├── package.json
+└── tsconfig.json
+```
+
+```
+# 设置为 false 时，编译后的文件不包含 *.d.ts.map
+├── dist
+│   ├── index.d.ts
 │   └── index.js
 ├── src
 │   └── index.ts
