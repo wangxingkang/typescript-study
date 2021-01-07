@@ -21,6 +21,7 @@
 |[`declaration`](#declaration)|`boolean`|`false`|生成类型定义文件|
 |[`declarationDir`](#declarationDir)|`string`|`n/a`|指定类型定义文件目录|
 |[`declarationMap`](#declarationMap)|`boolean`|`false`|生成类型定义的source map|
+|[`emitDeclarationOnly`](#emitDeclarationOnly)|`boolean`|`false`|是否只生成类型定义文件|
 
 ### Strict Checks
 
@@ -157,8 +158,8 @@ module.exports.pi = parseFloat(3.124);
 
 查看示例：
 
-- [declarationMap-false](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/declarationMap-false)
 - [declarationMap-true](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/declarationMap-true)
+- [declarationMap-false](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/declarationMap-false)
 
 ```
 # 设置为 true 时，编译后的文件包含 *.d.ts.map
@@ -174,6 +175,42 @@ module.exports.pi = parseFloat(3.124);
 
 ```
 # 设置为 false 时，编译后的文件不包含 *.d.ts.map
+├── dist
+│   ├── index.d.ts
+│   └── index.js
+├── src
+│   └── index.ts
+├── package.json
+└── tsconfig.json
+```
+
+[⇧ 回到目录](#目录)
+
+### emitDeclarationOnly
+
+设置为`true`，只生成类型定义文件
+
+使用场景：
+
+- 只需要类型定义的时候使用
+
+查看示例：
+
+- [emitDeclarationOnly-true](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/emitDeclarationOnly-true)
+- [emitDeclarationOnly-false](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/emitDeclarationOnly-false)
+
+```
+# 设置为 true 时，不会包含 *.js
+├── dist
+│   └── index.d.ts
+├── src
+│   └── index.ts
+├── package.json
+└── tsconfig.json
+```
+
+```
+# 设置为 false 时，包含 *.js
 ├── dist
 │   ├── index.d.ts
 │   └── index.js
