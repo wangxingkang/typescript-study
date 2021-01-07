@@ -21,7 +21,8 @@
 |[`declaration`](#declaration)|`boolean`|`false`|生成类型定义文件|
 |[`declarationDir`](#declarationDir)|`string`|`n/a`|指定类型定义文件目录|
 |[`declarationMap`](#declarationMap)|`boolean`|`false`|生成类型定义的source map|
-|[`emitDeclarationOnly`](#emitDeclarationOnly)|`boolean`|`false`|是否只生成类型定义文件|
+|[`emitDeclarationOnly`](#emitDeclarationOnly)|`boolean`|`false`|只生成类型定义文件|
+|[`noEmit`](#noEmit)|`boolean`|`false`|禁止生成文件|
 
 ### Strict Checks
 
@@ -213,6 +214,33 @@ module.exports.pi = parseFloat(3.124);
 # 设置为 false 时，包含 *.js
 ├── dist
 │   ├── index.d.ts
+│   └── index.js
+├── src
+│   └── index.ts
+├── package.json
+└── tsconfig.json
+```
+
+[⇧ 回到目录](#目录)
+
+### noEmit
+
+设置为`true`，禁止生成文件
+
+- [noEmit-true](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/noEmit-true)
+- [noEmit-false](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/noEmit-false)
+
+```
+# 设置为 true 时，不会生成编译文件
+├── src
+│   └── index.ts
+├── package.json
+└── tsconfig.json
+```
+
+```
+# 设置为 false 时，生成编译文件
+├── dist
 │   └── index.js
 ├── src
 │   └── index.ts
