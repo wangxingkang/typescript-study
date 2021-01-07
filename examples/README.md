@@ -18,6 +18,7 @@
 |---|----|---|---|
 |[`allowJs`](#allowJs)|`boolean`|`false`|允许编译JS文件|
 |[`checkJs`](#checkJs)|`boolean`|`false`|	报告JS文件中的错误。|
+|[`declaration`](#declaration)|`boolean`|`false`|生成类型定义文件|
 
 ### Strict Checks
 
@@ -82,5 +83,36 @@ module.exports.pi = parseFloat(3.124);
 
 [⇧ 回到目录](#目录)
 
-### allowSyntheticDefaultImports
+### declaration
 
+设置为`true`时，生成类型定义文件
+
+**使用场景**
+
+- 开发组件库、工具库需要生成类型定义文件时使用
+
+**查看示例**
+
+- [declaration-true](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/declaration-true)
+- [declaration-false](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/declaration-false)
+
+```
+# 设置为 true 时，编译后的文件包含 *.d.ts
+├── dist
+│   ├── index.d.ts
+│   └── index.js
+├── src
+│   └── index.ts
+├── package.json
+└── tsconfig.json
+```
+
+```
+# 设置为 false 时，编译后的文件不包含 *.d.ts
+├── dist
+│   └── index.js
+├── src
+│   └── index.ts
+├── package.json
+└── tsconfig.json
+```
