@@ -6,6 +6,6 @@
   "license": "MIT",
   "scripts": {
     "start": "tsc -w",
-    "build": "tsc"
+    "build": "rimraf dist && tsc"
   }
 }

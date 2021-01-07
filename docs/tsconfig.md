@@ -23,6 +23,7 @@
 |[`declarationMap`](#declarationMap)|`boolean`|`false`|生成类型定义的source map|
 |[`emitDeclarationOnly`](#emitDeclarationOnly)|`boolean`|`false`|只生成类型定义文件|
 |[`noEmit`](#noEmit)|`boolean`|`false`|禁止生成文件|
+|[`baseUrl`](#baseUrl)|`string`|-|定义根目录，进行绝对路径文件解析|
 
 ### Strict Checks
 
@@ -227,6 +228,8 @@ module.exports.pi = parseFloat(3.124);
 
 设置为`true`，禁止生成文件
 
+查看示例：
+
 - [noEmit-true](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/noEmit-true)
 - [noEmit-false](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/noEmit-false)
 
@@ -243,6 +246,27 @@ module.exports.pi = parseFloat(3.124);
 ├── dist
 │   └── index.js
 ├── src
+│   └── index.ts
+├── package.json
+└── tsconfig.json
+```
+
+[⇧ 回到目录](#目录)
+
+### baseUrl
+
+定义根目录，进行绝对路径文件解析
+
+查看示例：
+
+- [baseUrl](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/baseUrl)
+
+```
+# 设置为`./src`时，则可以写绝对路径
+# import { helloWorld } from 'hello/world';
+├── src
+│   ├── hello
+│   │   └── world.ts
 │   └── index.ts
 ├── package.json
 └── tsconfig.json

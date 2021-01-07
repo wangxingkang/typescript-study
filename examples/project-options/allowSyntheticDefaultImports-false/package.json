@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "tsc -w",
-    "build": "tsc"
+    "build": "rimraf dist && tsc"
   },
   "dependencies": {
     "react": "^17.0.1"
