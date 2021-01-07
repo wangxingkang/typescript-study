@@ -19,6 +19,7 @@
 |[`allowJs`](#allowJs)|`boolean`|`false`|允许编译JS文件|
 |[`checkJs`](#checkJs)|`boolean`|`false`|	报告JS文件中的错误。|
 |[`declaration`](#declaration)|`boolean`|`false`|生成类型定义文件|
+|[`declarationDir`](#declarationDir)|`string`|`n/a`|指定类型定义文件目录|
 
 ### Strict Checks
 
@@ -28,11 +29,11 @@
 
 设置为`true`时，将允许导入JS文件到你的项目，否则不会。
 
-**使用场景**
+使用场景：
 
 - 项目中使用`TS`、`JS`进行混合开发
 
-**查看示例**
+查看示例：
 
 - [allowJs-true](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/allowJs-true)
 - [allowJs-false](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/allowJs-false)
@@ -66,11 +67,11 @@
 
 和`allowJs`配合使用，设置为`true`时，则会报告JS文件中的错误
 
-**使用场景**
+使用场景：
 
 - 项目中使用`TS`、`JS`进行混合开发
 
-**查看示例**
+查看示例：
 
 - [checkJs-true](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/checkJs-true)
 - [checkJs-false](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/checkJs-false)
@@ -87,11 +88,11 @@ module.exports.pi = parseFloat(3.124);
 
 设置为`true`时，生成类型定义文件
 
-**使用场景**
+使用场景：
 
 - 开发组件库、工具库需要生成类型定义文件时使用
 
-**查看示例**
+查看示例：
 
 - [declaration-true](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/declaration-true)
 - [declaration-false](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/declaration-false)
@@ -116,3 +117,31 @@ module.exports.pi = parseFloat(3.124);
 ├── package.json
 └── tsconfig.json
 ```
+
+[⇧ 回到目录](#目录)
+
+### declarationDir
+
+和`declaration`配合使用，指定类型定义文件目录
+
+使用场景：
+
+- 开发组件库、工具库需要生成类型定义文件时使用
+
+查看示例：
+
+- [declarationDir](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/declarationDir)
+
+```
+# 设置为 dist/types 时，则类型文件将输出到 dist/types
+├── dist
+│   ├── types
+│   │   └── index.d.ts
+│   └── index.js
+├── src
+│   └── index.ts
+├── package.json
+└── tsconfig.json
+```
+
+[⇧ 回到目录](#目录)
