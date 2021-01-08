@@ -26,8 +26,10 @@
 
 ### Module Resolution
 
+|选项|类型|默认|描述|
+|---|----|---|---|
 |[`baseUrl`](#baseUrl)|`string`|-|定义根目录，进行绝对路径文件解析|
-|[`paths`](#paths)|`object`|-|配置快捷的别名设置|
+|[`paths`](#paths)|`object`|-|指定相对于`baseUrl`的映射|
 
 ### Strict Checks
 
