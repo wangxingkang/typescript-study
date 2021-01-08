@@ -23,7 +23,11 @@
 |[`declarationMap`](#declarationMap)|`boolean`|`false`|生成类型定义的source map|
 |[`emitDeclarationOnly`](#emitDeclarationOnly)|`boolean`|`false`|只生成类型定义文件|
 |[`noEmit`](#noEmit)|`boolean`|`false`|禁止生成文件|
+
+### Module Resolution
+
 |[`baseUrl`](#baseUrl)|`string`|-|定义根目录，进行绝对路径文件解析|
+|[`paths`](#paths)|`object`|-|配置快捷的别名设置|
 
 ### Strict Checks
 
@@ -259,11 +263,36 @@ module.exports.pi = parseFloat(3.124);
 
 查看示例：
 
-- [baseUrl](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/baseUrl)
+- [baseUrl](https://github.com/wangxingkang/typescript-study/tree/main/examples/module-resolution/baseUrl)
 
 ```
 # 设置为`./src`时，则可以写绝对路径
 # import { helloWorld } from 'hello/world';
+├── src
+│   ├── hello
+│   │   └── world.ts
+│   └── index.ts
+├── package.json
+└── tsconfig.json
+```
+
+[⇧ 回到目录](#目录)
+ 
+### paths
+
+和`baseUrl`配合使用，指定相对于`baseUrl`的映射
+
+使用场景：
+
+- 指定多个别名，防止写更多的相对路径，一般设置`@`指向项目的`src`目录
+
+查看示例：
+
+- [paths](https://github.com/wangxingkang/typescript-study/tree/main/examples/module-resolution/paths)
+
+```
+# 设置为`{ "@/*": ["src/*"] }`时，则可以写绝对路径
+# import { helloWorld } from '@/hello/world';
 ├── src
 │   ├── hello
 │   │   └── world.ts
