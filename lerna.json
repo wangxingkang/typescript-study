@@ -3,7 +3,6 @@
   "version": "independent",
   "useWorkspaces": true,
   "packages": [
-    "examples/file-inclusion/*",
-    "examples/project-options/*"
+    "examples/**/*"
   ]
 }
