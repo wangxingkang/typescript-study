@@ -28,6 +28,7 @@
 
 |选项|类型|默认|描述|
 |---|----|---|---|
+|[`allowSyntheticDefaultImports`](#allowSyntheticDefaultImports)|`boolean`|`false`|允许对不包含默认导出的模块使用默认导入。这个选项不会影响生成的代码，只会影响类型检查。|
 |[`baseUrl`](#baseUrl)|`string`|-|定义根目录，进行绝对路径文件解析|
 |[`paths`](#paths)|`object`|-|指定相对于`baseUrl`的映射|
 
@@ -258,6 +259,44 @@ module.exports.pi = parseFloat(3.124);
 ```
 
 [⇧ 回到目录](#目录)
+
+### allowSyntheticDefaultImports
+
+允许对不包含默认导出的模块使用默认导入。这个选项不会影响生成的代码，只会影响类型检查。
+
+`export = foo` 是 ts 为了兼容 commonjs 创造的语法，它对应于 commonjs 中的 `module.exports = foo`。
+
+在 ts 中，如果要引入一个通过 `export = foo` 导出的模块，标准的语法是 `import foo = require('foo')`，或者 `import * as foo from 'foo'`。
+
+当它设置为 true 时，允许使用 `import foo from 'foo'` 来导入一个通过 `export = foo` 导出的模块。当它设置为 false 时，则不允许，会报错。
+
+比如 React 的声明文件中，就是通过 export = React 来导出类型：
+
+```ts
+export = React;
+export as namespace React;
+
+declare namespace React {
+  // 声明 React 的类型
+}
+```
+
+查看示例：
+
+- [allowSyntheticDefaultImports-true](https://github.com/wangxingkang/typescript-study/tree/main/examples/module-resolution/allowSyntheticDefaultImports-true)
+- [allowSyntheticDefaultImports-false](https://github.com/wangxingkang/typescript-study/tree/main/examples/module-resolution/allowSyntheticDefaultImports-false)
+
+```
+# 设置为 true 时，可以正常使用
+import React from 'react';
+```
+
+```
+# 设置为 false 时，报错
+import React from 'react';
+// 需要这样使用
+import * as React from 'react';
+```
 
 ### baseUrl
 
