@@ -24,6 +24,7 @@
 |[`emitDeclarationOnly`](#emitDeclarationOnly)|`boolean`|`false`|只生成类型定义文件|
 |[`noEmit`](#noEmit)|`boolean`|`false`|禁止生成文件|
 |[`removeComments`](#removeComments)|`boolean`|`false`|删除编译后的所有的注释|
+|[`sourceMap`](#sourceMap)|`boolean`|`false`|生成相应的 `.map` 文件|
 |[`target`](#target)|`ES3`\|`ES5`\|`ES2015`\|`ES2016`\|`ES2017`\|`ES2018`\|`ES2019`\|`ES2020`\|`ESNEXT`|`ES3`|指定 ECMAScript 目标版本|
 
 ### Module Resolution
@@ -288,6 +289,36 @@ exports.__esModule = true;
 exports.helloWorldPTBR = void 0;
 /** The translation of 'Hello world' into Portuguese */
 exports.helloWorldPTBR = "Olá Mundo";
+```
+
+### sourceMap
+
+生成相应的 `.map` 文件
+
+查看示例：
+
+- [sourceMap-true](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/sourceMap-true)
+- [sourceMap-false](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/sourceMap-false)
+
+```
+# 设置为 true 时，不会生成 .map 文件
+├── dist
+│   ├── index.js
+│   └── index.js.map
+├── src
+│   └── index.ts
+├── package.json
+└── tsconfig.json
+```
+
+```
+# 设置为 false 时，不生成 .map 文件
+├── dist
+│   └── index.js
+├── src
+│   └── index.ts
+├── package.json
+└── tsconfig.json
 ```
 
 ### target
