@@ -23,7 +23,7 @@
 |[`declarationMap`](#declarationMap)|`boolean`|`false`|生成类型定义的source map|
 |[`emitDeclarationOnly`](#emitDeclarationOnly)|`boolean`|`false`|只生成类型定义文件|
 |[`noEmit`](#noEmit)|`boolean`|`false`|禁止生成文件|
-|[`rootDir`](#rootDir)|`string`|-|指定输入文件的根目录|
+|[`rootDir`](#rootDir)|`string`|-|指定输入文件的根目录，用于指定`outDir`控制输出目录结构。|
 |[`removeComments`](#removeComments)|`boolean`|`false`|删除编译后的所有的注释|
 |[`sourceMap`](#sourceMap)|`boolean`|`false`|生成相应的 `.map` 文件|
 |[`target`](#target)|`ES3`\|`ES5`\|`ES2015`\|`ES2016`\|`ES2017`\|`ES2018`\|`ES2019`\|`ES2020`\|`ESNEXT`|`ES3`|指定 ECMAScript 目标版本|
@@ -266,7 +266,7 @@ module.exports.pi = parseFloat(3.124);
 
 ### rootDir
 
-指定输入文件的根目录
+指定输入文件的根目录，用于指定`outDir`控制输出目录结构。
 
 查看示例：
 
