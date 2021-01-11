@@ -22,6 +22,7 @@
 |[`declarationDir`](#declarationDir)|`string`|`n/a`|指定类型定义文件目录|
 |[`declarationMap`](#declarationMap)|`boolean`|`false`|生成类型定义的source map|
 |[`emitDeclarationOnly`](#emitDeclarationOnly)|`boolean`|`false`|只生成类型定义文件|
+|[`jsx`](#jsx)|`react`\|`react-jsx`\|`react-jsxdev`\|`preserve`\|`react-native`|-|指定 `jsx` 代码的生成类型|
 |[`noEmit`](#noEmit)|`boolean`|`false`|禁止生成文件|
 |[`outDir`](#outDir)|`string`|--|指定输出目录|
 |[`removeComments`](#removeComments)|`boolean`|`false`|删除编译后的所有的注释|
@@ -35,7 +36,7 @@
 |---|----|---|---|
 |[`allowSyntheticDefaultImports`](#allowSyntheticDefaultImports)|`boolean`|`false`|允许对不包含默认导出的模块使用默认导入。这个选项不会影响生成的代码，只会影响类型检查。|
 |[`baseUrl`](#baseUrl)|`string`|-|定义根目录，进行绝对路径文件解析|
-|[`paths`](#paths)|`object`|-|指定相对于`baseUrl`的映射|
+|[`paths`](#paths)|`object`|-|模块名到基于 `baseUrl` 的路径映射的列表|
 
 ### Strict Checks
 
@@ -235,6 +236,52 @@ module.exports.pi = parseFloat(3.124);
 ```
 
 [⇧ 回到目录](#目录)
+
+### jsx
+
+指定 `jsx` 代码的生成类型
+
+查看示例：
+
+- [jsx-preserve](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/jsx-preserve)
+- [jsx-react](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/jsx-react)
+- [jsx-react-jsx](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/jsx-react-jsx)
+- [jsx-react-jsxdev](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/jsx-react-jsxdev)
+- [jsx-native](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/jsx-native)
+
+```tsx
+// 源代码
+export const helloWorld = () => <h1>Hello world</h1>;
+```
+
+```tsx
+// jsx 设置为 react
+import React from 'react';
+export const helloWorld = () => React.createElement('h1', null, 'Hello world');
+```
+
+```tsx
+// jsx 设置为 preserve
+export const helloWorld = () => <h1>Hello world</h1>;
+```
+
+```tsx
+// jsx 设置为 react-native
+export const helloWorld = () => <h1>Hello world</h1>;
+```
+
+```tsx
+// jsx 设置为 react-jsx
+import { jsx as _jsx } from 'react/jsx-runtime';
+export const helloWorld = () => _jsx('h1', { children: 'Hello world' }, void 0);
+```
+
+```tsx
+// jsx 设置为 react-jsxdev
+import { jsxDEV as _jsxDEV } from 'react/jsx-dev-runtime';
+const _jsxFileName = '**/typescript-study/examples/project-options/jsx-react-jsxdev/src/index.tsx';
+export const helloWorld = () => _jsxDEV('h1', { children: "Hello world" }, void 0, false, { fileName: _jsxFileName, lineNumber: 3, columnNumber: 42 }, this);
+```
 
 ### noEmit
 
@@ -454,7 +501,7 @@ import * as React from 'react';
  
 ### paths
 
-和`baseUrl`配合使用，指定相对于`baseUrl`的映射
+和 `baseUrl` 配合使用，模块名到基于 `baseUrl` 的路径映射的列表
 
 使用场景：
 
@@ -465,14 +512,17 @@ import * as React from 'react';
 - [paths](https://github.com/wangxingkang/typescript-study/tree/main/examples/module-resolution/paths)
 
 ```
-# 设置为`{ "@/*": ["src/*"] }`时，则可以写绝对路径
-# import { helloWorld } from '@/hello/world';
+# 目录如下
 ├── src
 │   ├── hello
 │   │   └── world.ts
 │   └── index.ts
 ├── package.json
 └── tsconfig.json
+
+# 设置为`{ "@/*": ["src/*"] }`时，则可以写绝对路径
+# src/index.ts 引入 src/hello/world.ts，代码如下：
+# import { helloWorld } from '@/hello/world';
 ```
 
 [⇧ 回到目录](#目录)
