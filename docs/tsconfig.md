@@ -24,7 +24,7 @@
 |[`emitDeclarationOnly`](#emitDeclarationOnly)|`boolean`|`false`|只生成类型定义文件|
 |[`noEmit`](#noEmit)|`boolean`|`false`|禁止生成文件|
 |[`removeComments`](#removeComments)|`boolean`|`false`|删除编译后的所有的注释|
-
+|[`target`](#target)|`ES3`\|`ES5`\|`ES2015`\|`ES2016`\|`ES2017`\|`ES2018`\|`ES2019`\|`ES2020`\|`ESNEXT`|`ES3`|指定 ECMAScript 目标版本|
 
 ### Module Resolution
 
@@ -272,7 +272,7 @@ module.exports.pi = parseFloat(3.124);
 - [removeComments-false](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/removeComments-false)
 
 ```ts
-// index.ts code
+// src/index.ts code
 /** The translation of 'Hello world' into Portuguese */
 export const helloWorldPTBR = "Olá Mundo";
 
@@ -288,6 +288,29 @@ exports.__esModule = true;
 exports.helloWorldPTBR = void 0;
 /** The translation of 'Hello world' into Portuguese */
 exports.helloWorldPTBR = "Olá Mundo";
+```
+
+### target
+
+指定 ECMAScript 目标版本
+
+查看示例：
+
+- [target-es5](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/target-es5)
+- [target-es2015](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/target-es2015)
+
+```ts
+// src/index.ts code
+export let helloWorld = 'hi';
+
+// 设置为 ES5 时，编译结果
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.helloWorld = void 0;
+exports.helloWorld = 'hi';
+
+// 设置为 ES2015 时，编译结果
+export let helloWorld = 'hi';
 ```
 
 ### allowSyntheticDefaultImports
