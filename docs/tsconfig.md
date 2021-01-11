@@ -23,6 +23,8 @@
 |[`declarationMap`](#declarationMap)|`boolean`|`false`|生成类型定义的source map|
 |[`emitDeclarationOnly`](#emitDeclarationOnly)|`boolean`|`false`|只生成类型定义文件|
 |[`noEmit`](#noEmit)|`boolean`|`false`|禁止生成文件|
+|[`removeComments`](#removeComments)|`boolean`|`false`|删除编译后的所有的注释|
+
 
 ### Module Resolution
 
@@ -259,6 +261,34 @@ module.exports.pi = parseFloat(3.124);
 ```
 
 [⇧ 回到目录](#目录)
+
+### removeComments
+
+设置为`true`，删除编译后的所有的注释
+
+查看示例：
+
+- [removeComments-true](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/removeComments-true)
+- [removeComments-false](https://github.com/wangxingkang/typescript-study/tree/main/examples/project-options/removeComments-false)
+
+```ts
+// index.ts code
+/** The translation of 'Hello world' into Portuguese */
+export const helloWorldPTBR = "Olá Mundo";
+
+// 设置为 true 时，删除编译后的所有的注释
+"use strict";
+exports.__esModule = true;
+exports.helloWorldPTBR = void 0;
+exports.helloWorldPTBR = "Olá Mundo";
+
+// 设置为 false 时，保留注释
+"use strict";
+exports.__esModule = true;
+exports.helloWorldPTBR = void 0;
+/** The translation of 'Hello world' into Portuguese */
+exports.helloWorldPTBR = "Olá Mundo";
+```
 
 ### allowSyntheticDefaultImports
 
